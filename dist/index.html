@@ -319,6 +319,70 @@ section[id]{scroll-margin-top:80px}
 .nav a,.btn-sm,.plan li,.plan .use,.step p,.price-note,.foot-links a,.foot-grid p{font-size:14px}
 .contact-card .btn{max-width:100%;white-space:normal}
 @media(max-width:600px){.logo span{display:none}.site-head .wrap{gap:8px}.logo b{font-size:13px;letter-spacing:.02em}.nav .btn{font-size:12px;padding:10px}.hero .lede{font-size:16px}.plan .fee{font-size:28px}}
+
+/* Mobile layout and accessible consultation controls */
+.nav a.btn-primary,
+.nav a.btn-primary:visited,
+.nav a.btn-primary:hover,
+.nav a.btn-primary:focus-visible{
+  color:#1A0C04;
+  font-weight:700;
+}
+.nav a.btn-primary{border-color:var(--ember-soft)}
+.btn{min-height:48px;touch-action:manipulation}
+.site-head .wrap{height:auto;min-height:66px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.site-head .logo{min-width:0;flex:1 1 180px}
+.site-head .nav{flex-shrink:0}
+.hero-note .note-item{display:inline-flex;align-items:center;gap:8px}
+.hero-note .note-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ember);flex:none}
+.contact-card{background:var(--ink);border:1px solid var(--line);padding:32px;min-width:0}
+@media(max-width:1080px){
+  .site-head .logo span{display:none}
+  .nav{gap:16px}
+}
+@media(max-width:860px){
+  html{scroll-padding-bottom:100px}
+  .site-head .logo b{font-size:clamp(.875rem,2.8vw,1.0625rem);letter-spacing:.02em;line-height:1.35}
+  .site-head .nav .btn{font-size:.875rem;padding:10px 16px;white-space:nowrap}
+  .hero{padding:0}
+  .hero .wrap{min-height:560px;padding-top:56px;padding-bottom:40px}
+  .hero h1{font-size:clamp(1.75rem,5.7vw,2.75rem);line-height:1.5}
+  .hero .lede,.reason p,.faq .a,.problem p,.step p{font-size:1rem}
+  .hero-note{font-size:.875rem;gap:10px 16px}
+  .plans{gap:20px}
+  .plan.is-lead{padding-top:46px}
+  .plan.is-lead::before{font-size:.75rem}
+  .dock .btn{font-size:1rem;padding:12px 16px}
+  footer{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+}
+@media(max-width:600px){
+  :root{--pad:20px}
+  section{padding:52px 0}
+  .sec-head{margin-bottom:28px}
+  .hero .wrap{min-height:0;padding-top:48px;padding-bottom:36px}
+  .hero-img{object-position:58% center}
+  .hero h1{font-size:clamp(1.75rem,7vw,2.25rem);letter-spacing:0}
+  .hero h1 br{display:none}
+  .hero-cta{display:grid;gap:12px;margin-top:24px}
+  .hero-cta .btn,.work-foot .btn,.contact-card .btn{width:100%;padding-left:16px;padding-right:16px}
+  .hero-note{display:grid;grid-template-columns:1fr;gap:8px}
+  .eyebrow{letter-spacing:.1em;line-height:1.7;flex-wrap:wrap}
+  .eyebrow::after{display:none}
+  .work-top{margin-bottom:24px}
+  .work-client{letter-spacing:.06em;overflow-wrap:anywhere}
+  .strip{grid-template-columns:1fr;gap:20px;background:transparent}
+  .cut figcaption{position:static;padding:12px 14px;background:var(--ink-3);font-size:.875rem;line-height:1.7}
+  .cut .tc{font-size:.75rem}
+  .reason,.problem,.step{padding:24px 20px}
+  .reason .proof,.work-foot p,.price-note{font-size:.875rem;color:var(--fg-dim)}
+  .plan{padding:26px 20px}
+  .plan .fee{font-size:2rem}
+  .contact-card{padding:24px 20px}
+  .contact-grid{gap:28px}
+  .foot-grid{align-items:flex-start}
+  .foot-links{gap:8px 18px}
+  .foot-links a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>
@@ -331,7 +395,7 @@ section[id]{scroll-margin-top:80px}
       <a href="#why">選ばれる理由</a>
       <a href="#flow">制作の流れ</a>
       <a href="#price">料金</a>
-      <a class="btn btn-primary btn-sm" href="#contact">制作を相談する</a>
+      <a class="btn btn-primary btn-sm" href="#contact" aria-label="動画制作を相談する">相談する</a>
     </nav>
   </div>
 </header>
@@ -350,11 +414,11 @@ section[id]{scroll-margin-top:80px}
         <a class="btn btn-ghost" href="#work">制作実績を見る</a>
       </div>
       <p class="hero-note">
-        <span class="dot"></span>30秒動画・20万円（税別）
-        <span class="dot"></span>最短3週間で納品
-        <span class="dot"></span>ロケ・キャスティング不要
-        <span class="dot"></span>企画から作れます
-        <span class="dot"></span>NDA対応可
+        <span class="note-item">30秒動画・20万円（税別）</span>
+        <span class="note-item">最短3週間で納品</span>
+        <span class="note-item">ロケ・キャスティング不要</span>
+        <span class="note-item">企画から作れます</span>
+        <span class="note-item">NDA対応可</span>
       </p>
     </div>
   </section>
@@ -563,7 +627,7 @@ section[id]{scroll-margin-top:80px}
           <p class="mailto">会計事務所の既存窓口から、動画制作についてもご相談いただけます。</p>
         </div>
 
-        <div class="contact-card" style="background:var(--ink);border:1px solid var(--line);padding:32px">
+        <div class="contact-card">
           <p class="eyebrow">30秒動画 / 20万円（税別）</p>
           <h3>企業CM制作の無料相談</h3>
           <p class="lede">原田浩志公認会計士事務所のお問い合わせフォームで承ります。「企業CM制作の相談」とご記入のうえ、用途・希望納期をお知らせください。</p>
