@@ -9,7 +9,7 @@
 
 ## Vercel
 
-既存の `next-chapter-films` プロジェクトの Settings → Git から `HARA-JasmyLab/next-chapter-films` を接続してください。
+Vercelの既存 `next-chapter-films` プロジェクトと `HARA-JasmyLab/next-chapter-films` のGit連携を確認済みです。
 
 - Production Branch: `main`
 - Framework Preset: Other
@@ -17,7 +17,7 @@
 - Output Directory: `dist`
 - Build / Install Command: 不要（vercel.jsonで無効化）
 
-接続後、mainのコミットを本番デプロイしてください。以後はmainへのpushで更新されます。
+更新はmainへコミットし、VercelのDeploymentsで該当コミットの公開結果を確認してください。
 
 ## Domain
 
