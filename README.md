@@ -1,28 +1,41 @@
-# Next Chapter FILMS
+# NEXT CHAPTER FILMS
 
-企業アニメーション制作LP。30秒動画：20万円（税別）。
+Production: https://studio.cpa-hara.com/
 
-## Files
+Static Japanese animation studio landing page. The original artwork, dark palette,
+Mincho typography, orange accents and embedded images are retained.
 
-- `dist/index.html`: LP本体。画像7点はHTML内に埋め込み済み。
-- `vercel.json`: Vercel用の静的サイト設定。依存パッケージ・ビルド処理は不要。
+## Edit and build
 
-## Vercel
+Requires Node.js 22 or newer; no packages, credentials or environment variables.
 
-Vercelの既存 `next-chapter-films` プロジェクトと `HARA-JasmyLab/next-chapter-films` のGit連携を確認済みです。
+```sh
+npm run check
+npm run build
+```
 
-- Production Branch: `main`
-- Framework Preset: Other
-- Root Directory: リポジトリのルート
-- Output Directory: `dist`
-- Build / Install Command: 不要（vercel.jsonで無効化）
+- `src/template.html`: original visual shell and embedded artwork, preserved verbatim.
+- `src/sections.json`: current Japanese copy, offerings and section markup.
+- `src/strategy.css`: responsive additions using the existing design tokens.
+- `src/consultation.js`: optional consultation memo; no submission, storage or analytics.
+- `scripts/build.mjs`: replaces named regions, validates image preservation, unique IDs,
+  section anchors and existing contact/privacy links, then writes `dist/`.
 
-更新はmainへコミットし、VercelのDeploymentsで該当コミットの公開結果を確認してください。
+Vercel runs the build and publishes `dist/`. GitHub `main` is production; use a
+preview branch to verify changes before merging. `site-version.json` exposes only
+non-sensitive build checks and an output checksum.
 
-## Domain
+## Commercial and contact boundaries
 
-Settings → Domains に `studio.cpa-hara.com` を追加し、指定されたCNAME値をエックスサーバーのDNSレコード設定に登録してください。
+Prices are tax-exclusive: production JPY 200,000; production/distribution from
+JPY 600,000; continuing sponsorship from JPY 1,000,000/month. Paid media spend is
+separate. Scope and terms are confirmed per quotation. No unqualified promise of
+organic views, viral reach or inquiries. Never add invented campaign results.
 
-## Contact
+The existing contact destination remains https://cpa-hara.com/contact/ . Plan,
+purpose, budget and timing choices create an optional copyable memo. They are not
+submitted or automatically transferred; visitors are explicitly told to paste the
+memo into the existing form. The direct contact link works without JavaScript.
 
-相談ボタンは既存の https://cpa-hara.com/contact/ に接続しています。LP内から直接送信するフォームや動画本編の埋め込みはありません。
+This refresh does not configure YouTube posting, advertising accounts, conversion
+tracking or a new form backend. Those integrations require a separate setup.
