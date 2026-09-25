@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NEXT CHAPTER FILMS Short Studio — 30秒アニメーションの企画を、6カットの制作設計まで。">
+<meta name="robots" content="noindex,nofollow">
+<title>Short Studio β | NEXT CHAPTER FILMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/create/create.css">
+</head>
+<body>
+<header class="studio-head">
+  <a class="brand" href="/" aria-label="NEXT CHAPTER FILMS トップへ">
+    <b>NEXT CHAPTER FILMS</b>
+    <span>SHORT STUDIO / BETA</span>
+  </a>
+  <div class="head-actions">
+    <span class="status-pill"><i></i> PLANNER ONLINE</span>
+    <a href="/" class="back-link">Studio site ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro" aria-labelledby="page-title">
+    <div class="intro-copy">
+      <p class="eyebrow">IDEA → STORY → CUTS → EXPORT</p>
+      <h1 id="page-title">30秒の物語を、<br><em>制作できる設計図に。</em></h1>
+      <p class="lede">テーマをひとつ。Next Chapter Filmsの制作思想で、ショートアニメの骨格・6カット・画像プロンプト・動画プロンプト・ナレーションまで一度に組み立てます。</p>
+    </div>
+    <div class="intro-meta" aria-label="MVP仕様">
+      <div><span>FORMAT</span><b>9:16 / 1080×1920</b></div>
+      <div><span>DURATION</span><b>30 sec / 6 cuts</b></div>
+      <div><span>ENGINE</span><b>MoneyPrinterTurbo ready</b></div>
+    </div>
+  </section>
+
+  <nav class="progress" aria-label="制作工程">
+    <button class="progress-item is-active" data-jump="idea"><span>01</span><b>IDEA</b><small>種を決める</small></button>
+    <button class="progress-item" data-jump="story"><span>02</span><b>STORY</b><small>感情の弧</small></button>
+    <button class="progress-item" data-jump="cuts"><span>03</span><b>CUTS</b><small>6カット設計</small></button>
+    <button class="progress-item" data-jump="export"><span>04</span><b>EXPORT</b><small>MPTへ渡す</small></button>
+  </nav>
+
+  <section class="workspace" id="idea">
+    <aside class="section-index">
+      <span>01</span>
+      <div>
+        <p>IDEA</p>
+        <small>何を感じさせたいか。</small>
+      </div>
+    </aside>
+
+    <div class="panel input-panel">
+      <form id="story-form">
+        <label class="field field-main">
+          <span>THEME / ONE-LINE IDEA</span>
+          <textarea id="theme" maxlength="180" required placeholder="例：雨の日、毎日同じ無人駅で誰かを待ち続ける犬。"></textarea>
+          <small><span id="theme-count">0</span>/180 — 説明ではなく、情景か出来事を一つ。</small>
+        </label>
+
+        <div class="field-grid">
+          <label class="field">
+            <span>MOOD</span>
+            <select id="mood">
+              <option value="quiet">静かな余韻</option>
+              <option value="warm">あたたかい</option>
+              <option value="tension">不安から光へ</option>
+              <option value="wonder">不思議・発見</option>
+              <option value="drive">挑戦・前進</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>WORLD</span>
+            <select id="world">
+              <option value="japan">日本の日常</option>
+              <option value="city">都市</option>
+              <option value="nature">自然</option>
+              <option value="school">学校・青春</option>
+              <option value="future">近未来</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>VISUAL LANGUAGE</span>
+            <select id="visual-style">
+              <option value="cinematic">Cinematic Anime</option>
+              <option value="soft">Soft Illustration</option>
+              <option value="graphic">Graphic Motion</option>
+              <option value="real">Anime Realism</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>NARRATION</span>
+            <select id="narration-mode">
+              <option value="minimal">最小限</option>
+              <option value="poetic">詩的</option>
+              <option value="direct">わかりやすく</option>
+              <option value="none">なし</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="examples">
+          <span>SEEDS</span>
+          <button type="button" data-example="閉店間際の小さな商店で、毎晩ひとつだけ残る弁当。">商店街</button>
+          <button type="button" data-example="世界大会の会場へ向かう12歳の少年。手には古いバイオリン。">挑戦</button>
+          <button type="button" data-example="海辺の町で、毎朝同じ場所に一輪の花を置く少女。">海辺</button>
+        </div>
+
+        <button class="generate-btn" type="submit">
+          <span>GENERATE STORYBOARD</span>
+          <i aria-hidden="true">→</i>
+        </button>
+        <p class="prototype-note">このβ版の企画生成はブラウザ内のルールベースです。外部APIに入力内容を送信しません。次段でAI planner / MoneyPrinterTurbo APIに差し替えます。</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="workspace output-section" id="story" hidden>
+    <aside class="section-index">
+      <span>02</span>
+      <div><p>STORY</p><small>30秒の感情設計。</small></div>
+    </aside>
+    <div class="panel">
+      <div class="output-head">
+        <div>
+          <p class="eyebrow">STORY ARC</p>
+          <h2 id="story-title">—</h2>
+          <p id="story-logline" class="story-logline"></p>
+        </div>
+        <button class="icon-btn" type="button" id="copy-script">COPY SCRIPT</button>
+      </div>
+      <div class="arc" aria-label="物語の6段階">
+        <div><span>0–4s</span><b>HOOK</b></div>
+        <div><span>4–9s</span><b>CONTEXT</b></div>
+        <div><span>9–14s</span><b>SHIFT</b></div>
+        <div><span>14–20s</span><b>REVEAL</b></div>
+        <div><span>20–26s</span><b>RELEASE</b></div>
+        <div><span>26–30s</span><b>ECHO</b></div>
+      </div>
+      <div class="script-box">
+        <span>NARRATION / CAPTION SCRIPT</span>
+        <p id="story-script"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="workspace output-section" id="cuts" hidden>
+    <aside class="section-index">
+      <span>03</span>
+      <div><p>CUTS</p><small>生成と編集を分解する。</small></div>
+    </aside>
+    <div class="panel">
+      <div class="output-head compact">
+        <div>
+          <p class="eyebrow">6-CUT STORYBOARD</p>
+          <h2>同じ世界観を、6つの判断に分ける。</h2>
+        </div>
+      </div>
+      <div class="cut-list" id="cut-list"></div>
+    </div>
+  </section>
+
+  <section class="workspace output-section" id="export" hidden>
+    <aside class="section-index">
+      <span>04</span>
+      <div><p>EXPORT</p><small>生成エンジンへ。</small></div>
+    </aside>
+    <div class="panel export-panel">
+      <div class="output-head">
+        <div>
+          <p class="eyebrow">HANDOFF</p>
+          <h2>MoneyPrinterTurboへ渡せる形に。</h2>
+          <p class="story-logline">MPTの標準VideoParamsと、Next Chapter Films独自の6カット指示を同じJSONに保持します。</p>
+        </div>
+      </div>
+
+      <div class="export-grid">
+        <article class="export-card">
+          <span class="export-no">A</span>
+          <h3>Production JSON</h3>
+          <p>企画、6カット、画像・動画プロンプト、字幕、MPTパラメータをまとめて保存。</p>
+          <button type="button" class="export-btn" id="download-json">DOWNLOAD JSON</button>
+        </article>
+        <article class="export-card">
+          <span class="export-no">B</span>
+          <h3>MPT Manifest</h3>
+          <p>MoneyPrinterTurboのbatch-fileに近い最小パラメータだけをコピー。</p>
+          <button type="button" class="export-btn" id="copy-mpt">COPY MANIFEST</button>
+        </article>
+        <article class="export-card muted">
+          <span class="export-no">NEXT</span>
+          <h3>Render Pipeline</h3>
+          <p>各CUTを画像→動画化し、生成素材をMPTへ渡して音声・字幕・BGM・編集・投稿まで自動化。</p>
+          <span class="coming">ADAPTER NOT CONNECTED</span>
+        </article>
+      </div>
+
+      <div class="manifest">
+        <div class="manifest-head"><span>moneyprinterturbo.json</span><span id="export-status">READY</span></div>
+        <pre id="manifest-preview"></pre>
+      </div>
+
+      <div class="restart-row">
+        <button type="button" class="text-btn" id="start-over">← NEW IDEA</button>
+        <p>失敗したら、どの段階で壊れたかを切り分けられる構造にします。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>NEXT CHAPTER FILMS / HRD General Office Inc.</span>
+  <span>SHORT STUDIO MVP — 2026</span>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/create/create.js" defer></script>
+</body>
+</html>
