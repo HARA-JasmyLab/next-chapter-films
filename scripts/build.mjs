@@ -47,10 +47,15 @@ assert.ok(html.includes('https://cpa-hara.com/privacy/'), 'Keep existing privacy
 assert.ok(!html.includes('<!-- ORIGINAL_HERO_IMAGE -->'), 'Unresolved image placeholder');
 assert.ok(!html.includes('利用権は貴社に帰属'), 'Unqualified rights claim must be replaced');
 new Function(readFileSync(new URL('../src/consultation.js', import.meta.url), 'utf8'));
+new Function(readFileSync(new URL('../src/create.js', import.meta.url), 'utf8'));
 const out = new URL('../dist/', import.meta.url);
 mkdirSync(out, { recursive: true });
 writeFileSync(new URL('index.html', out), html);
 for (const file of ['strategy.css','consultation.js']) copyFileSync(new URL(`../src/${file}`, import.meta.url), new URL(file, out));
-const checks = { revision: 'strategy-2026-09', sections: ids.filter(id => ['work','why','distribution','price','flow','faq','contact'].includes(id)), embeddedImages: imageSources(html).length, artworkPreserved: true, uniqueIds: true, internalLinksValid: true, htmlSha256: createHash('sha256').update(html).digest('hex') };
+const createOut = new URL('create/', out);
+mkdirSync(createOut, { recursive: true });
+copyFileSync(new URL('../src/create.html', import.meta.url), new URL('index.html', createOut));
+for (const file of ['create.css','create.js']) copyFileSync(new URL(`../src/${file}`, import.meta.url), new URL(file, createOut));
+const checks = { revision: 'short-studio-mvp-2026-09', shortStudio: '/create/', sections: ids.filter(id => ['work','why','distribution','price','flow','faq','contact'].includes(id)), embeddedImages: imageSources(html).length, artworkPreserved: true, uniqueIds: true, internalLinksValid: true, htmlSha256: createHash('sha256').update(html).digest('hex') };
 writeFileSync(new URL('site-version.json', out), JSON.stringify(checks, null, 2));
 console.log('NCF build checks passed:', JSON.stringify(checks));
